@@ -2,16 +2,19 @@ const ADD = "ADD"
 const REMOVE_PRODUCT = 'REMOVE_PRODUCT';
 const INCREMENT = 'BASKET_INCREMENT';
 const DECREMENT = 'BASKET_DECREMENT';
+const REMOVE_ALL = 'REMOVE_ALL';
 
 
 
 const basket = JSON.parse(localStorage.getItem('basket')) ?? [];
 const writeToLocalStorage = (basket) => localStorage.setItem('basket', JSON.stringify(basket))
 
-export const addToBasketAction = (payload) => ({type: ADD, payload})
-export const removeProduct = (payload) => ({type: REMOVE_PRODUCT, payload})
-export const incrCount = (payload) => ({type: INCREMENT, payload})
-export const decrCount = (payload) => ({type: DECREMENT, payload})
+export const addToBasketAction = (payload) => ({type: ADD, payload});
+export const removeProduct = (payload) => ({type: REMOVE_PRODUCT, payload});
+export const incrCount = (payload) => ({type: INCREMENT, payload});
+export const decrCount = (payload) => ({type: DECREMENT, payload});
+export const removeAll = () => ({type: REMOVE_ALL});
+
 
 export const basketReducer = (state = basket, action) => {
     if (action.type === ADD) {
@@ -44,6 +47,9 @@ export const basketReducer = (state = basket, action) => {
         }
             writeToLocalStorage(state)
         return [...state]
+    }else if (action.type === REMOVE_ALL) {
+        writeToLocalStorage([])
+        return []
     }
     return state
 }

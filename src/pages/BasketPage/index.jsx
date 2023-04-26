@@ -19,12 +19,12 @@ const BasketPage = () => {
         <Link to={'/products'}>Back to the store</Link>
         <span>{'>'}</span>
       </div>
-      <div>
+      <div className={s.basketInfoContainer}>
         {
           products.length === 0
           ? <p>Loading...</p>
           : <>
-              <div className={s.basketContainer}>
+              <div className={s.basketItemContainer}>
                 {
                   data.map(item => <BasketItem key={item.id} {...item}/>)
                 }

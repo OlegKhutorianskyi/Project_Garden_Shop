@@ -22,12 +22,12 @@ const BasketItem = ({id, title, price, discont_price, image, count}) => {
                 {
                     discont_price ? 
                     <>
-                        <p className={s.discount}>{discont_price}$</p>
-                        <p className={s.price}>{price}$</p>
+                        <p className={s.discount}>{discont_price * count}$</p>
+                        <p className={s.price}>{price * count}$</p>
                     </>
                     :
                     <>
-                        <p className={s.normalPrice}>{price}$</p>
+                        <p className={s.normalPrice}>{price * count}$</p>
                     </>  
                 }
             </div>

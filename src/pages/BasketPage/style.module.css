@@ -2,6 +2,11 @@
     padding: 80px 30px;
 
 }
+.basketInfoContainer{
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
 .container > h1{
     text-align: left;
     font-weight: 700;
@@ -26,4 +31,7 @@
     transition: .5s;
     color:red;
     gap: 30px;
+}
+.basketItemContainer{
+    width: 60%;
 }
