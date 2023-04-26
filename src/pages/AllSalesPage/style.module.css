@@ -1,0 +1,13 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding: 80px 30px;
+}
+.productsList{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 80px 30px;
+    gap: 35px;
+}

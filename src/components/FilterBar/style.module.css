@@ -1,0 +1,51 @@
+.container{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 90px;
+}
+
+.filterPrice{
+    display: flex;
+    align-items: center;
+    gap: 15px;   
+}
+ p{
+    font-weight: 600;
+    font-size: 20px;
+    font-family: "Montserrat";
+}
+
+.filterPrice input{
+    width: 120px;
+    height: 20px;
+    border-radius: 7px;
+    padding: 10px;
+}
+
+.filterDiscontProduct{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.filterDiscontProduct input{
+    width: 30px;
+    height: 30px;
+    border: 1px solid #000;
+    border-radius: 50%;
+}
+
+.sortProduct{
+    display: flex;
+    align-items: center;
+    gap: 15px;   
+}
+.sortProduct select{
+    width: 120px;
+    height: 45px;
+    border-radius: 7px;
+    color: #797979;
+    padding: 5px;
+    outline: 2px solid #797979;
+}

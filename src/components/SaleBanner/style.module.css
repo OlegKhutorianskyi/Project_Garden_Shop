@@ -1,0 +1,57 @@
+.saleBanner{
+    display: flex;
+    justify-content: space-between;
+    background-color: #A1E2EB;
+    align-items: center;
+    width: 100%;
+}
+
+.linkToSale{
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    width: 50%;
+}
+.saleTitle{
+    display: flex;
+    flex-direction: column;  
+    text-align: left;
+    margin-left: 50px;
+}
+
+.title{
+    color: #fff;
+    margin: 0;
+    font-weight: 700;
+    font-size: 80px;
+    padding: 0;
+    text-align: left;   
+}
+.subTitle{
+    margin: 0;
+    color: #fff;
+    font-weight: 700;
+    font-size: 60px;
+    padding: 0;
+    margin-bottom: 60px;
+    text-align: left;   
+}
+.saleTitle button{
+    padding: 25px 50px;
+    border: none;
+    border-radius: 15px;
+    background-color: #fff;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.bannerImgContainer{
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 0;
+    width: 50%;
+}
+.bannerImgContainer img{
+    background-repeat: no-repeat;
+    object-fit: contain;
+}

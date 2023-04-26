@@ -1,0 +1,29 @@
+.container{
+    padding: 80px 30px;
+
+}
+.container > h1{
+    text-align: left;
+    font-weight: 700;
+    font-size: 40px;
+    /* font-family: 'Montserrat'; */
+}
+.container a{
+    font-weight: 500;
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+}
+.linkToMain{
+    /* width: 80%; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.linkToMain:hover{
+    content: '>';
+    transition: .5s;
+    color:red;
+    gap: 30px;
+}

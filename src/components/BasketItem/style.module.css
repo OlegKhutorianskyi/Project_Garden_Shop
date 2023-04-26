@@ -1,0 +1,86 @@
+.container{
+    width: 50%;
+    display: flex;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    gap: 20px;
+    border-bottom: 1px solid #A7A7A7;
+    border-top: 1px solid #A7A7A7;
+}
+.container img{
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    object-fit: contain;
+}
+.itemInfoContainer{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+.titleContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+}
+.titleContainer > p{
+    font-weight: 600;
+    font-size: 18px;
+    color: #3A3A3A;
+}
+.countItem{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid #000;
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+}
+.countItem > p{
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 7px;
+}
+.countItem button{
+    background-color: transparent;
+    border: none;
+    height: 100%;
+    width: 35%;
+    font-size: 20px;
+    cursor: pointer;
+}
+.countItem button:hover{
+    transition: .5s;
+    background-color: #000;
+    border-radius: 10px;
+    color: #fff;
+}
+.priceContainer{
+    display: flex;
+    gap: 50px;
+    align-items: baseline;
+    margin-top: 10%;
+}
+.discount{
+    font-weight: 600;
+    font-size: 30px;
+    font-family: "Montserrat";
+    color: #000;
+}
+
+.price{
+    font-family: "Montserrat";
+    font-weight: 500;
+    font-size: 20px;
+    color: #8B8B8B;
+    text-decoration: line-through;
+}
+.deleteItem{
+    border: none;
+    background-color: transparent;
+    width: 30px;
+    height: 30px;
+
+}
