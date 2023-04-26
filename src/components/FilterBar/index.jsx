@@ -53,8 +53,6 @@ const FiterBar = () => {
                 <option  value="default">by Default</option>
                 <option value="1">By price up</option>
                 <option value="2">By price down</option>
-                <option value="3">By new add</option>
-                <option value="4">By old add</option>
             </select>
         </div>
     </div>
