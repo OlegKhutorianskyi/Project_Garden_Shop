@@ -41,12 +41,8 @@ export const productsReducer = (state = [], action) => {
                 return byPrice(a) - byPrice(b)
             } else if(action.payload === 2){
                 return byPrice(b) - byPrice(a)
-            }else if(action.payload === 3){
-                return byDate(new Date(a)) - byDate(new Date(b)); 
-            }else if(action.payload === 4){
-                return byDate(new Date(b)) - byDate(new Date(a))
             } else{
-                return 0
+                return [...state]
             }
         })
     }else if (action.type === UP_PRICE_RANGE) {
