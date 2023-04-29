@@ -20,7 +20,8 @@ const BasketItem = ({id, title, price, discont_price, image, count}) => {
             </div>
             <div className={s.priceContainer}>
                 {
-                    discont_price ? 
+                    discont_price 
+                    ? 
                     <>
                         <p className={s.discount}>{discont_price * count}$</p>
                         <p className={s.price}>{price * count}$</p>

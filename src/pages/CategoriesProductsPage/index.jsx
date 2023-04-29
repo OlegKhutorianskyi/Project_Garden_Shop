@@ -7,11 +7,16 @@ import AllProductsItem from '../../components/AllProductsItem';
 const CategoriesProductsPage = () => {
     const {id} = useParams();
 
-    const products = useSelector(state => state.products)
-      const product = products.filter(item => item.categoryId === +id)
+    const {products, categories} = useSelector(state => state)
+    const product = products.filter(item => item.categoryId === +id)
+    const category = categories.filter(item => item.id === +id)
+    
 
-    const categories = useSelector(state => state.categories)
-      const category = categories.filter(item => item.id === +id)
+    // const products = useSelector(state => state.products)
+    //   const product = products.filter(item => item.categoryId === +id)
+
+    // const categories = useSelector(state => state.categories)
+    //   const category = categories.filter(item => item.id === +id)
         
     
   return (

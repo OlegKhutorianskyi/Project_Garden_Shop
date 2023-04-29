@@ -4,7 +4,7 @@ export const cuponLoadAction = (payload) => ({type: CUPON_LOAD, payload});
 
   export const cuponReducer = (state = [], action) => {
     if (action.type === CUPON_LOAD) {
-      
+
       return action.payload
     }
     else{

@@ -5,6 +5,13 @@ import BasketItem from '../../components/BasketItem'
 import BasketCalculation from '../../components/BasketCalculation'
 import { useSelector } from 'react-redux'
 
+
+// basket = [
+//   {item},
+//   {item},
+//   {item}
+// ]
+
 const BasketPage = () => {
   const {basket, products} = useSelector((state) => state);
   const data = basket.map(item => {

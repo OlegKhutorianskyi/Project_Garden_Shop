@@ -5,6 +5,8 @@ import SaleBanner from '../../components/SaleBanner'
 import Catalog from '../../components/Catalog'
 import SendCupon from '../../components/SendCupon'
 import SalesProducts from '../../components/SalesProducts'
+
+
 const MainPage = () => {
   return (
     <div className={s.container}>

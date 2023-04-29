@@ -8,8 +8,8 @@ import { PacmanLoader } from 'react-spinners'
 const SalesProducts = () => {
   
   const product = useSelector(state => state.products);
-  const filterdSaleProducts = product.filter(item => item.discont_price !== null)
-  const products = filterdSaleProducts.map(item => <SalesItem key={item.id} {...item}/>)
+  const filterdSaleProducts = product.filter(item => item.discont_price !== null);
+  const products = filterdSaleProducts.map(item => <SalesItem key={item.id} {...item}/>);
 
   return (
     <section className={s.container}>
@@ -20,7 +20,8 @@ const SalesProducts = () => {
         </div>
         <div className={s.salesList}>
             {
-              product.length === 0 ?
+              product.length === 0 
+              ?
                 <PacmanLoader
                   color={'green'}
                   loading={true}

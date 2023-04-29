@@ -7,8 +7,7 @@ import { PacmanLoader } from 'react-spinners'
 const CatalogPage = () => {
 
   const category = useSelector(state => state.categories)
-  console.log(category);
-    const categories = category.map(item => <CategoryItem key={item.id} {...item}/>)
+  const categories = category.map(item => <CategoryItem key={item.id} {...item}/>)
   return (
     <div>
       <div className={s.catalogTitle}>

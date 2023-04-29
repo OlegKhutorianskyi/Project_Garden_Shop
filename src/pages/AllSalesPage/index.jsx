@@ -6,7 +6,6 @@ import FiterBar from '../../components/FilterBar'
 
 const AllSalesPage = () => {
   const saleProducts = useSelector((state) => state.products);
-  console.log(saleProducts);
   return (
     <div className={s.container}>
       <FiterBar />
@@ -14,11 +13,9 @@ const AllSalesPage = () => {
         <div className={s.productsList}>
           {saleProducts.filter(({show}) => show)
           .map((item) =>
-            item.discont_price ? (
-              <AllProductsItem key={item.id} {...item} />
-            ) : (
-              ""
-            )
+            item.discont_price 
+            ? (<AllProductsItem key={item.id} {...item} />) 
+            : ("")
           )}
         </div>
       }

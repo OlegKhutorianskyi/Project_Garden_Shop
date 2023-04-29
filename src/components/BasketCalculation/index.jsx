@@ -11,15 +11,19 @@ const BasketCalculation = () => {
   const basketDescr = basket.map(item => {
     const product = products.find(({id}) => id === item.id);
     return {...item, ...product}
-  })
+  });
 
-  const totalPrice = basketDescr.reduce((acc, {count, globalPrice}) => acc + globalPrice  * count, 0).toFixed(2);
+  const totalPrice = basketDescr
+    .reduce((acc, {count, globalPrice}) => acc + globalPrice  * count,  0)
+    .toFixed(2);
 
   return (
     <div className={s.container}>
       <div className={s.titleContainer}>
         <h2>Order details</h2>
-        <button className={s.cleanBtn} onClick={() => dispatch(removeAll(basket))}>Clean Basket</button>
+        <button className={s.cleanBtn} onClick={() => dispatch(removeAll(basket))}>
+          Clean Basket
+        </button>
       </div>
 
       <div className={s.totalSumContainer}>

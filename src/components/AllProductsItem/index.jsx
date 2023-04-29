@@ -1,10 +1,11 @@
 import React from 'react'
-import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import s from './style.module.css'
+
 const AllProductsItem = ({id, price, title, image, discont_price}) => {
+
     const link = `/products/${id}`;
-    const dispatch = useDispatch();
+    
   return (
     <div className={s.container}>
         
@@ -12,7 +13,8 @@ const AllProductsItem = ({id, price, title, image, discont_price}) => {
             <img src={`http://localhost:3333${image}`} alt={title} />
             <div className={s.priceInfo}>
               {
-                discont_price ? 
+                discont_price 
+                ? 
                   <>
                     <p className={s.discount}>{discont_price}$</p>
                     <p className={s.price}>{price}$</p>

@@ -2,8 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import s from './style.module.css'
 
-const SalesItem = ({id, title, image, price, discont_price}) => {
-  return (
+const SalesItem = ({id, title, image, price, discont_price}) => (
     
     <div className={s.container}>
         <Link to={`/prdoucts/${id}`}>
@@ -17,6 +16,5 @@ const SalesItem = ({id, title, image, price, discont_price}) => {
         </Link>
     </div>
   )
-}
 
 export default SalesItem

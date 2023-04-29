@@ -7,9 +7,11 @@ import { addToBasketAction } from "../../store/reducers/basketReducer";
 
 const ProductDescriptionPage = () => {
   const { id } = useParams();
+
   const product = useSelector(({ products }) =>
     products.find((item) => item.id === +id)
   );
+
   const dispatch = useDispatch();
   const render = () => {
     if (product === undefined) {
@@ -32,21 +34,29 @@ const ProductDescriptionPage = () => {
             </div>
             <div className={s.productInfo}>
               <div className={s.priceInfo}>
-                {discont_price ? (
+                {
+                discont_price 
+                ? (
                   <>
-                    <p className={s.discount}>{discont_price}<span>$</span></p>
+                    <p className={s.discount}>
+                      {discont_price}
+                      <span>$</span>
+                    </p>
                     <p className={s.price}>{price}$</p>
                     <p className={s.precent}>
                       -{((price / discont_price - 1) * 100).toFixed(0)}%
                     </p>
                   </>
-                ) : (
+                ) 
+                : (
                   <>
                     <p className={s.normalPrice}>{price}$</p>
                   </>
                 )}
               </div>
-              <button onClick={() => dispatch(addToBasketAction(+id))}>To cart</button>
+              <button onClick={() => dispatch(addToBasketAction(+id))}>
+                To cart
+              </button>
               <div className={s.productDescription}>
                 <h4>Description</h4>
                 <p className={s.description}>{description}</p>

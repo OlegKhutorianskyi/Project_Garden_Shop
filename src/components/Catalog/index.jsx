@@ -21,14 +21,16 @@ const Catalog = () => {
         </div>
         <div className={s.catalogList}>
             {
-                category.length === 0 ?
+                category.length === 0 
+                ?
                     <PacmanLoader
                     color={'green'}
                     loading={true}
                     size={100}
                     /> 
                     
-                : categories.slice(0,4)
+                : 
+                categories.slice(0,4)
             }
         </div>
         

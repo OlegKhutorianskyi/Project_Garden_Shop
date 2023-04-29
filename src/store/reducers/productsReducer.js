@@ -21,46 +21,88 @@ const byPrice = ({globalPrice}) => globalPrice;
 const byDate = ({updatedAt}) => updatedAt; 
 
 
-
+//перевести в swichCase
 export const productsReducer = (state = [], action) => {
-    if (action.type === PRODUCTS_LOAD) {
-        
-        return action.payload.map(item => ({
-            ...item, 
-            globalPrice: item.discont_price === null ? item.price : item.discont_price,
-            show: true,
-            formatAt: new Date(item.updatedAt),
-            sale: item.discont_price !== null
-        } ))
-        
-    }
-    else if (action.type === PRODUCTS_SORT_FILTER) {
-        
-        return [...state].sort((a,b) => {
-            if (action.payload === 1) {
-                return byPrice(a) - byPrice(b)
-            } else if(action.payload === 2){
-                return byPrice(b) - byPrice(a)
-            } else{
-                return [...state]
-            }
-        })
-    }else if (action.type === UP_PRICE_RANGE) {
-
-        return state.map(item => ({...item, 
-            show: item.globalPrice <= action.payload }))
-        }else if (action.type === DOWN_PRICE_RANGE) {
-
+    switch(action.type) {
+        case PRODUCTS_LOAD: {
+            return action.payload.map(item => ({
+                ...item, 
+                globalPrice: item.discont_price === null ? item.price : item.discont_price,
+                show: true,
+                formatAt: new Date(item.updatedAt),
+                sale: item.discont_price !== null
+            } ))
+        }
+        case PRODUCTS_SORT_FILTER: {
+            return [...state].sort((a,b) => {
+                if (action.payload === 1) {
+                    return byPrice(a) - byPrice(b)
+                } else if(action.payload === 2){
+                    return byPrice(b) - byPrice(a)
+                } else{
+                    return [...state]
+                }
+            })
+        }
+        case UP_PRICE_RANGE: {
+            return state.map(item => ({...item, 
+                show: item.globalPrice <= action.payload }))            
+        }
+        case DOWN_PRICE_RANGE: {
             return state.map(item => ({...item, 
                 show: item.globalPrice >= action.payload }))
-            }else if (action.type === PRODUCTS_RESET_FILTER) {
-
-            return state.map(item => ({...item, show: true}))        
-        }else if (action.type === FILTERED_SALES) {
+        }
+        case PRODUCTS_RESET_FILTER: {
+          return state.map(item => ({...item, show: true}))    
+        }    
+        case FILTERED_SALES: {
             return state.map(item => ({...item, 
                 show: action.payload ? item.discont_price !== null : true  }))
         }
+        default:
+            return state;
+    }
+
+
+
+    // if (action.type === PRODUCTS_LOAD) {
+        
+    //     return action.payload.map(item => ({
+    //         ...item, 
+    //         globalPrice: item.discont_price === null ? item.price : item.discont_price,
+    //         show: true,
+    //         formatAt: new Date(item.updatedAt),
+    //         sale: item.discont_price !== null
+    //     } ))
+        
+    // }
+    // else if (action.type === PRODUCTS_SORT_FILTER) {
+        
+    //     return [...state].sort((a,b) => {
+    //         if (action.payload === 1) {
+    //             return byPrice(a) - byPrice(b)
+    //         } else if(action.payload === 2){
+    //             return byPrice(b) - byPrice(a)
+    //         } else{
+    //             return [...state]
+    //         }
+    //     })
+    // }else if (action.type === UP_PRICE_RANGE) {
+
+    //     return state.map(item => ({...item, 
+    //         show: item.globalPrice <= action.payload }))
+    // }else if (action.type === DOWN_PRICE_RANGE) {
+
+    //         return state.map(item => ({...item, 
+    //             show: item.globalPrice >= action.payload }))
+    // }else if (action.type === PRODUCTS_RESET_FILTER) {
+
+    //         return state.map(item => ({...item, show: true}))        
+    // }else if (action.type === FILTERED_SALES) {
+    //         return state.map(item => ({...item, 
+    //             show: action.payload ? item.discont_price !== null : true  }))
+    // }
 
         
-    return state
+    // return state
 }

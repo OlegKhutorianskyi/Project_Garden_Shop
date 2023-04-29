@@ -9,19 +9,20 @@ const CategoryItem = ({id, title, image}) => {
     <div className={s.container}>
         <Link to={`/catalog/${id}`}>
             <img src={`http://localhost:3333${image}`} alt={title} />
-              
-            
-            <p>{
-            title === undefined ? 
-            <ClipLoader
-              color={'green'}
-              loading={true}
-              size={150}
-              aria-label='Load Spinner'
-              data-testid="loader"
-            /> 
-            : title
-          }</p>
+            <p>
+              {
+                title === undefined 
+                ? 
+                <ClipLoader
+                  color={'green'}
+                  loading={true}
+                  size={150}
+                  aria-label='Load Spinner'
+                  data-testid="loader"
+                /> 
+                : title
+              }
+          </p>
         </Link>
     </div>
   )
