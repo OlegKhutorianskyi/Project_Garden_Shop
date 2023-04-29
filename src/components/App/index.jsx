@@ -21,7 +21,7 @@ function App() {
     dispatch(asyncloadCategoriesAction);
     dispatch(asyncloadProductsAction);
     dispatch(asyncloadCuponAction);
-  }, undefined)
+  }, [] )
 
   return (
     <div className="App">
