@@ -7,9 +7,9 @@ import AllProductsItem from '../../components/AllProductsItem';
 const CategoriesProductsPage = () => {
     const {id} = useParams();
 
-    const {products, categories} = useSelector(state => state)
-    const product = products.filter(item => item.categoryId === +id)
-    const category = categories.filter(item => item.id === +id)
+    const {list, status} = useSelector(state => state.category)
+    // const product = products.filter(item => item.categoryId === +id)
+    const categories = list.filter(item => item.id === +id)
     
 
     // const products = useSelector(state => state.products)
@@ -21,8 +21,8 @@ const CategoriesProductsPage = () => {
     
   return (
     <div className={s.container}>
-        <h1>{category.map(item => item.title)}</h1>
-        {product.map(item => <AllProductsItem key={item.id} {...item}/>)}
+        <h1>{categories.map(item => item.title)}</h1>
+        {/* {product.map(item => <AllProductsItem key={item.id} {...item}/>)} */}
     </div>
   )
 }

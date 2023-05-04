@@ -6,8 +6,8 @@ import { PacmanLoader } from 'react-spinners'
 
 const CatalogPage = () => {
 
-  const category = useSelector(state => state.categories)
-  const categories = category.map(item => <CategoryItem key={item.id} {...item}/>)
+  const {list, status} = useSelector(state => state.category)
+  const categorie = list.map(item => <CategoryItem key={item.id} {...item}/>)
   return (
     <div>
       <div className={s.catalogTitle}>
@@ -15,7 +15,7 @@ const CatalogPage = () => {
       </div>
       <div className={s.container}>
         {
-          category.length === 0 ? 
+          status === 'loading' ? 
           <div className={s.loaderContainer}>
 
             <PacmanLoader
@@ -25,7 +25,7 @@ const CatalogPage = () => {
             /> 
           </div>
           :
-          categories
+          categorie
         }      
       </div>
     </div>

@@ -8,8 +8,8 @@ import { PacmanLoader } from 'react-spinners'
 
 const Catalog = () => {
 
-    const category = useSelector(state => state.categories)
-    const categories = category.map(item => <CategoryItem key={item.id} {...item}/>)
+    const {list, status} = useSelector(state => state.category);
+    const categorie = list.map(item => <CategoryItem key={item.id} {...item}/>)
     
   return (
     <section className={s.container}>
@@ -21,7 +21,7 @@ const Catalog = () => {
         </div>
         <div className={s.catalogList}>
             {
-                category.length === 0 
+                status === 'loading' 
                 ?
                     <PacmanLoader
                     color={'green'}
@@ -30,7 +30,7 @@ const Catalog = () => {
                     /> 
                     
                 : 
-                categories.slice(0,4)
+                categorie.slice(0,4)
             }
         </div>
         

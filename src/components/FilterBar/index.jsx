@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import s from './style.module.css'
 import { useDispatch } from 'react-redux'
-import { downPriceRange, upPriceRange, productsSortFilterAction, filteredSalesProducts } from '../../store/reducers/productsReducer';
+import { downPriceRange, filteredSales, sort, upPriceRane } from '../../store/slice/productsSlice';
 
 
 const FiterBar = () => {
@@ -17,18 +17,18 @@ const FiterBar = () => {
 
     const handleFilterMaxPrice = (e) => {
         e.target.value > 0 
-        ? dispatch(upPriceRange(+e.target.value))
+        ? dispatch(upPriceRane(+e.target.value))
         : e.target.value = 0
     }
     
 
     const sortOnChange = (e) => {
-        dispatch(productsSortFilterAction(+e.target.value))
+        dispatch(sort(+e.target.value))
     }
-
-    const changeCheck = () => {
-        setCheck(!check)
-        dispatch(filteredSalesProducts(!check))
+ 
+ const changeCheck = () => {
+     setCheck(!check)
+     dispatch(filteredSales(!check))
     }
 
    

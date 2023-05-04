@@ -9,17 +9,19 @@ import BasketPage from '../../pages/BasketPage';
 import CatalogPage from '../../pages/CatalogPage';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { asyncloadCategoriesAction } from '../../asyncActions/categories';
-import { asyncloadProductsAction } from '../../asyncActions/products';
+// import { asyncloadCategoriesAction } from '../../asyncActions/categories';
+// import { asyncloadProductsAction } from '../../asyncActions/products';
 import CategoriesProductsPage from '../../pages/CategoriesProductsPage';
 import ProductDescriptionPage from '../../pages/ProductDescriptionPage';
 import { asyncloadCuponAction } from '../../asyncActions/requestCupon';
+import { fetchCategories } from '../../store/slice/categoriesSlice';
+import { fetchProducts } from '../../store/slice/productsSlice';
 
 function App() {
   const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(asyncloadCategoriesAction);
-    dispatch(asyncloadProductsAction);
+    dispatch(fetchCategories());
+    dispatch(fetchProducts());
     dispatch(asyncloadCuponAction);
   }, [] )
 
