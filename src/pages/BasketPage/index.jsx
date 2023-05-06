@@ -6,15 +6,15 @@ import BasketCalculation from '../../components/BasketCalculation'
 import { useSelector } from 'react-redux'
 
 
-// basket = [
-//   {item},
-//   {item},
-//   {item}
-// ]
+
 
 const BasketPage = () => {
-  const {basket, products} = useSelector((state) => state);
-  const data = basket.map(item => {
+
+  const {list} = useSelector(state => state.basket)
+  const products = useSelector(state => state.products.list)
+  const productsStatus = useSelector(state => state.products.status)
+  
+  const data = list.map(item => {
     const product = products.find(({id}) => id === item.id)
     return {...item, ...product}
   })
@@ -28,7 +28,7 @@ const BasketPage = () => {
       </div>
       <div className={s.basketInfoContainer}>
         {
-          products.length === 0
+          productsStatus === 'loading'
           ? <p>Loading...</p>
           : <>
               <div className={s.basketItemContainer}>

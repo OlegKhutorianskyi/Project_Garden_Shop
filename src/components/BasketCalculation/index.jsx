@@ -1,11 +1,12 @@
 import React from 'react'
 import s from './style.module.css'
 import { useDispatch, useSelector } from 'react-redux'
-import { removeAll } from '../../store/reducers/basketReducer';
+import { removeAll } from '../../store/slice/basketSlice';
 
 const BasketCalculation = () => {
-
-  const {basket, products} = useSelector(state => state);
+  const basket = useSelector(state => state.basket.list)
+  const products = useSelector(state => state.products.list)
+  // const {basket, products} = useSelector(state => state);
   const dispatch = useDispatch();
 
   const basketDescr = basket.map(item => {

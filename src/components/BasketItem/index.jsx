@@ -1,7 +1,7 @@
 import React from 'react'
 import s from './style.module.css'
 import { useDispatch } from 'react-redux'
-import { decrCount, incrCount, removeProduct } from '../../store/reducers/basketReducer'
+import { decrCount, incrCount, removeProduct } from '../../store/slice/basketSlice'
 
 const BasketItem = ({id, title, price, discont_price, image, count}) => {
     const dispatch = useDispatch()
