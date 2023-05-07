@@ -8,7 +8,8 @@ const FiterBar = () => {
 
     const dispatch = useDispatch();
     const [check, setCheck] = useState(!true)
-
+    const location = document.location;
+    
     const handleFilterMinPrice = (e) => {
         e.target.value > 0 
         ? dispatch(downPriceRange(+e.target.value))
@@ -52,12 +53,19 @@ const FiterBar = () => {
             />
         </div>
         <div className={s.filterDiscontProduct}>
-            <p>Discounted items</p>
-            <input 
-                type="checkbox" 
-                checked={check} 
-                onChange={changeCheck} 
-            />
+            {
+                location.pathname === '/sales' 
+                ? ''   
+                : <>
+                    <p>Discounted items</p>
+                    <input 
+                        type="checkbox" 
+                        checked={check} 
+                        onChange={changeCheck} 
+                    /> 
+                </>
+                
+            }
         </div>
         <div className={s.sortProduct}>
             <p>Sorted</p>

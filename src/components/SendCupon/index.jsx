@@ -4,6 +4,7 @@ import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import { useDispatch, useSelector } from 'react-redux'
 import { cuponLoadAction } from '../../store/reducers/cuponReducer'
+import { fetchCupon } from '../../store/slice/cuponSlice';
 
 const SendCupon = () => {
     const cupon = useSelector(state => state.cupon)
@@ -11,7 +12,7 @@ const SendCupon = () => {
     const dispatch = useDispatch()
     const sendNumber = (e) => {
         e.preventDefault()
-        dispatch(cuponLoadAction(e.target.tel.value))
+        dispatch(fetchCupon(e.target.tel.value))
         
     }
     // const cupunResult = cupon.map(item=>({...item}));

@@ -8,21 +8,24 @@ const CategoriesProductsPage = () => {
     const {id} = useParams();
 
     const {list, status} = useSelector(state => state.category)
+
+    const products = useSelector(state => state.products.list)
+      const product = products.filter(item => item.categoryId === +id)
     // const product = products.filter(item => item.categoryId === +id)
     const categories = list.filter(item => item.id === +id)
     
 
-    // const products = useSelector(state => state.products)
-    //   const product = products.filter(item => item.categoryId === +id)
 
     // const categories = useSelector(state => state.categories)
     //   const category = categories.filter(item => item.id === +id)
         
     
   return (
-    <div className={s.container}>
-        <h1>{categories.map(item => item.title)}</h1>
-        {/* {product.map(item => <AllProductsItem key={item.id} {...item}/>)} */}
+    <div>
+          <h1>{categories.map(item => item.title)}</h1>
+      <div className={s.container}>
+          {product.map(item => <AllProductsItem key={item.id} {...item}/>)}
+      </div>
     </div>
   )
 }

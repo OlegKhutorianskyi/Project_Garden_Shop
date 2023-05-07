@@ -6,7 +6,6 @@ import { removeAll } from '../../store/slice/basketSlice';
 const BasketCalculation = () => {
   const basket = useSelector(state => state.basket.list)
   const products = useSelector(state => state.products.list)
-  // const {basket, products} = useSelector(state => state);
   const dispatch = useDispatch();
 
   const basketDescr = basket.map(item => {
