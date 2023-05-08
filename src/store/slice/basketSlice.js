@@ -40,7 +40,8 @@ export const basketSlice = createSlice({
         removeAll (state) {
             state.list = []
             writeToLocalStorage(state.list)
-        }
+        },
+        
     },
     // extraReducers: (builder) => {
     //     builder
@@ -59,5 +60,5 @@ export const basketSlice = createSlice({
 })
 
 
-export const {add, removeProduct, incrCount, decrCount, removeAll} = basketSlice.actions;
+export const {add, removeProduct, incrCount, decrCount, removeAll, cupon} = basketSlice.actions;
 export default basketSlice.reducer;

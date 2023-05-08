@@ -1,16 +1,36 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import s from './style.module.css'
+import { useDispatch } from 'react-redux';
+import { add } from '../../store/slice/basketSlice';
 
 const AllProductsItem = ({id, price, title, image, discont_price}) => {
-
-    const link = `/products/${id}`;
+  const dispatch = useDispatch();
+  const [itemClassName, setItemClassName] = useState(false);
+  
+  const link = `/products/${id}`;
     
   return (
-    <div className={s.container}>
+    <div 
+        className={s.container}
+        onMouseEnter={() => setItemClassName(!false)}
+        onMouseLeave={() => setItemClassName(false)}
+    >
+      <div className={s.imgContainer}>
+            <img src={`http://localhost:3333${image}`} alt={title} />
+            {
+              itemClassName 
+                    && 
+                    <button 
+                        className={s.addBtn}
+                        onClick={()=> dispatch(add(id))}    
+                    >
+                        add to cart
+                    </button>
+                }
+      </div>
         
         <Link to={link}>
-            <img src={`http://localhost:3333${image}`} alt={title} />
             <div className={s.priceInfo}>
               {
                 discont_price 

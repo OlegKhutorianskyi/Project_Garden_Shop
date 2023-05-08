@@ -4,8 +4,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import { removeAll } from '../../store/slice/basketSlice';
 
 const BasketCalculation = () => {
-  const basket = useSelector(state => state.basket.list)
-  const products = useSelector(state => state.products.list)
+  const basket = useSelector(state => state.basket.list);
+  const products = useSelector(state => state.products.list);
+  const cupon = useSelector(state => state.cupon.list); 
   const dispatch = useDispatch();
 
   const basketDescr = basket.map(item => {
@@ -30,6 +31,14 @@ const BasketCalculation = () => {
         <p className={s.titleTotalSum}>Total</p>
         <p className={s.totalSum}>{totalPrice}$</p>
       </div>
+      {
+        cupon.cupon
+        ? <div className={s.cuponSaleBlock}>
+            <span className={s.cuponSaleSum}>-5%</span>
+            <p className={s.cuponSaleInfo}>on products without discount</p>
+          </div>
+        : ''
+      }
       <form className={s.form}>
         <input type="text" placeholder='Phone number'/>
         <button>Order</button>

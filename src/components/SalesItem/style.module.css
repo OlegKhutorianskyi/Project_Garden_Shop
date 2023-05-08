@@ -5,21 +5,32 @@
     width: 300px;
     text-align: left;
 }
-.container:hover::after{
-    content: "Add to card";
-    position: relative;
-    width: 60%;
-    text-align: center;
-    padding: 15px 35px;
-    top: -43%;
-    left: 8%;
-    background-color: #F1FFF1;
-    border: 3px solid #339933;
-    border-radius: 20px;
-    color: #339933;
+.container:hover{
     transition: .5s;
     transform: translateY(-10px);
 }
+.addBtn{
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    width: 80%;
+    text-align: center;
+    padding: 15px 35px;
+    background-color: #F1FFF1;
+    border: 3px solid #339933;
+    border-radius: 18px;
+    color: #339933;
+    font-weight: 600;
+    font-size: 18px;
+    cursor: pointer;
+}
+.addBtn:hover{
+    
+    transition: .5s;
+    color: #F1FFF1;
+    background-color: #339933;
+}
+
 
 .container a{
     text-decoration: none;
@@ -28,7 +39,7 @@
 .container img{
     width: 100%;
     height: 295px; 
-    object-fit: contain;
+    object-fit: cover;
     border-radius: 15px;
 
 }

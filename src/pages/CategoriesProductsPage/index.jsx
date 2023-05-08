@@ -2,7 +2,9 @@ import React from 'react'
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom'
 import s from './style.module.css'
+import FiterBar from "../../components/FilterBar";
 import AllProductsItem from '../../components/AllProductsItem';
+
 
 const CategoriesProductsPage = () => {
     const {id} = useParams();
@@ -23,7 +25,8 @@ const CategoriesProductsPage = () => {
   return (
     <div>
           <h1>{categories.map(item => item.title)}</h1>
-      <div className={s.container}>
+          <FiterBar />
+      <div className={s.containerItems}>
           {product.map(item => <AllProductsItem key={item.id} {...item}/>)}
       </div>
     </div>

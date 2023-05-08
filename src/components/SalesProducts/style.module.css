@@ -19,7 +19,10 @@
     font-size: 40px;
 }
 .salesList{
-    display: flex;
-    justify-content: space-between;
-    gap: 35px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-auto-rows: 500px;
+    gap: 20px;
+    align-items: center;
+    justify-items: center;
 }
