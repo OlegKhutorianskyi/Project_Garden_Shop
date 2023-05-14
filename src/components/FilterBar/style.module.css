@@ -24,6 +24,10 @@
     border-radius: 7px;
     padding: 10px;
 }
+.filterPrice input::-webkit-outer-spin-button,
+.filterPrice input::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+}
 
 .filterDiscontProduct{
     display: flex;

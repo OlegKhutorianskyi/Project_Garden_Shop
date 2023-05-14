@@ -13,7 +13,6 @@ import { useEffect } from 'react';
 // import { asyncloadProductsAction } from '../../asyncActions/products';
 import CategoriesProductsPage from '../../pages/CategoriesProductsPage';
 import ProductDescriptionPage from '../../pages/ProductDescriptionPage';
-import { asyncloadCuponAction } from '../../asyncActions/requestCupon';
 import { fetchCategories } from '../../store/slice/categoriesSlice';
 import { fetchProducts } from '../../store/slice/productsSlice';
 
@@ -22,7 +21,6 @@ function App() {
   useEffect(() => {
     dispatch(fetchCategories());
     dispatch(fetchProducts());
-    dispatch(asyncloadCuponAction);
   }, [] )
 
   return (

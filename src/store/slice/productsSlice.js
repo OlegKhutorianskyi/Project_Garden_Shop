@@ -11,7 +11,7 @@ export const fetchProducts = createAsyncThunk(
             ...item,
                 globalPrice: item.discont_price === null ? item.price : item.discont_price,
                 show: true,
-                sale: item.discont_price !== null 
+                sale: item.discont_price !== null
         }))
         return modifyData
     }
@@ -27,17 +27,19 @@ export const productsSlice = createSlice({
     },
     reducers: {
         resetFilter (state){
-            state.list.push({show: true}) ;
+            state.list.push({show: true})
         },
         filteredSales (state, {payload}){
-            state.list.filter(item => payload ? item.show = item.discont_price !== null : item.show = true)
+
+           state.list.filter(item => payload ? item.show = item.sale : item.show = true)
         },
-        upPriceRane (state, {payload}){
-            state.list.filter(item => item.show = item.globalPrice <= payload)
+        filterByPrice (state, {payload}) {
+            // const range = payload;
+            state.list.filter(item => item.show = item.globalPrice <= payload.max && item.globalPrice >= payload.min)
+            console.log(payload);
+
         },
-        downPriceRange (state, {payload}) {
-            state.list.filter(item => item.show = item.globalPrice >= payload)
-        },
+        
         sort (state, {payload}) {
             state.list.sort((a,b) => {
                 switch (payload) {
@@ -67,5 +69,5 @@ export const productsSlice = createSlice({
     } 
 })
 
-export const {resetFilter, filteredSales, upPriceRane, downPriceRange, sort} = productsSlice.actions;
+export const {resetFilter, filteredSales, sort, filterByPrice} = productsSlice.actions;
 export default productsSlice.reducer;

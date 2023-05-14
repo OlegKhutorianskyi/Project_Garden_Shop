@@ -1,14 +1,21 @@
 import React from 'react'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom'
 import s from './style.module.css'
 import FiterBar from "../../components/FilterBar";
 import AllProductsItem from '../../components/AllProductsItem';
+import { useEffect } from 'react';
+import { resetFilter } from '../../store/slice/productsSlice';
 
 
 const CategoriesProductsPage = () => {
     const {id} = useParams();
-
+    const dispatch = useDispatch();
+    
+    useEffect(() => {
+      dispatch(resetFilter());
+    }, [dispatch]);
+    
     const {list, status} = useSelector(state => state.category)
 
     const products = useSelector(state => state.products.list)
@@ -27,7 +34,11 @@ const CategoriesProductsPage = () => {
           <h1>{categories.map(item => item.title)}</h1>
           <FiterBar />
       <div className={s.containerItems}>
-          {product.map(item => <AllProductsItem key={item.id} {...item}/>)}
+          {
+            product
+            .filter(({ show }) => show)
+            .map(item => <AllProductsItem key={item.id} {...item}/>)
+            }
       </div>
     </div>
   )

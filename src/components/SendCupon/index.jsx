@@ -8,7 +8,6 @@ import { fetchCupon } from '../../store/slice/cuponSlice';
 
 const SendCupon = () => {
     const cupon = useSelector(state => state.cupon.list);
-console.log(cupon);
     const dispatch = useDispatch();
 
 
@@ -16,9 +15,8 @@ console.log(cupon);
         e.preventDefault()
         dispatch(fetchCupon(e.target.tel.value))
     }
-    // const cupunResult = cupon.map(item=>({...item}));
-    // console.log({...cupon});
-    const notify = () => toast(`Your cupon: ${cupon.cupon}`);  
+
+    const notify = () => toast(`sale add!`);  
 
 //     const resolveAfter3Sec = new Promise(resolve => setTimeout(resolve, 3000));
 // toast.promise(
