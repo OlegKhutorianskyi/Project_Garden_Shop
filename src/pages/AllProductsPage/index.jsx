@@ -6,6 +6,7 @@ import FiterBar from "../../components/FilterBar";
 import { PacmanLoader } from "react-spinners";
 import { useEffect } from "react";
 import { resetFilter } from "../../store/slice/productsSlice";
+import AnimatedPage from "../AnimatedPage";
 
 const AllProductsPage = () => {
 
@@ -19,19 +20,21 @@ const AllProductsPage = () => {
 
   // console.log(list);
   return (
-    <div className={s.container}>
-      <h1 className={s.title}>All products</h1>
-      <FiterBar />
-      <div className={s.productsList}>
-        {status === 'loading' ? (
-          <PacmanLoader color={"green"} loading={true} size={100} />
-        ) : (
-          list
-            .filter(({ show }) => show)
-            .map((item) => <AllProductsItem key={item.id} {...item} />)
-        )}
+    <AnimatedPage>
+      <div className={s.container}>
+        <h1 className={s.title}>All products</h1>
+        <FiterBar />
+        <div className={s.productsList}>
+          {status === 'loading' ? (
+            <PacmanLoader color={"green"} loading={true} size={100} />
+          ) : (
+            list
+              .filter(({ show }) => show)
+              .map((item) => <AllProductsItem key={item.id} {...item} />)
+          )}
+        </div>
       </div>
-    </div>
+    </AnimatedPage>
   );
 };
 

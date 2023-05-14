@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import BasketItem from '../../components/BasketItem'
 import BasketCalculation from '../../components/BasketCalculation'
 import { useSelector } from 'react-redux'
+import AnimatedPage from '../AnimatedPage'
 
 
 
@@ -20,28 +21,30 @@ const BasketPage = () => {
   })
 
   return (
-    <div className={s.container}>
-      <h1>Shopping Cart</h1>
-      <div className={s.linkToMain}>
-        <Link to={'/products'}>Back to the store</Link>
-        <span>{'>'}</span>
+    <AnimatedPage>
+      <div className={s.container}>
+        <h1>Shopping Cart</h1>
+        <div className={s.linkToMain}>
+          <Link to={'/products'}>Back to the store</Link>
+          <span>{'>'}</span>
+        </div>
+        <div className={s.basketInfoContainer}>
+          {
+            productsStatus === 'loading'
+            ? <p>Loading...</p>
+            : <>
+                <div className={s.basketItemContainer}>
+                  {
+                    data.map(item => <BasketItem key={item.id} {...item}/>)
+                  }
+                </div>
+                <BasketCalculation/>
+              </>
+          }
+          
+        </div>
       </div>
-      <div className={s.basketInfoContainer}>
-        {
-          productsStatus === 'loading'
-          ? <p>Loading...</p>
-          : <>
-              <div className={s.basketItemContainer}>
-                {
-                  data.map(item => <BasketItem key={item.id} {...item}/>)
-                }
-              </div>
-              <BasketCalculation/>
-            </>
-        }
-        
-      </div>
-    </div>
+    </AnimatedPage>
   )
 }
 

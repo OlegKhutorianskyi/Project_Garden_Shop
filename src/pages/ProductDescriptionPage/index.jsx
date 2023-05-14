@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import ReactLoading from "react-loading";
 import { add } from "../../store/slice/basketSlice";
+import AnimatedPage from "../AnimatedPage";
 
 const ProductDescriptionPage = () => {
   const { id } = useParams();
@@ -60,7 +61,12 @@ const ProductDescriptionPage = () => {
     }
   };
 
-  return render();
+  return (
+    <AnimatedPage>
+      {render()}
+    </AnimatedPage>
+  )
+  
 };
 
 export default ProductDescriptionPage;

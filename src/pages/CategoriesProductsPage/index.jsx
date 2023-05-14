@@ -6,6 +6,7 @@ import FiterBar from "../../components/FilterBar";
 import AllProductsItem from '../../components/AllProductsItem';
 import { useEffect } from 'react';
 import { resetFilter } from '../../store/slice/productsSlice';
+import AnimatedPage from '../AnimatedPage';
 
 
 const CategoriesProductsPage = () => {
@@ -30,17 +31,19 @@ const CategoriesProductsPage = () => {
         
     
   return (
-    <div>
-          <h1>{categories.map(item => item.title)}</h1>
-          <FiterBar />
-      <div className={s.containerItems}>
-          {
-            product
-            .filter(({ show }) => show)
-            .map(item => <AllProductsItem key={item.id} {...item}/>)
-            }
+    <AnimatedPage>
+      <div>
+            <h1>{categories.map(item => item.title)}</h1>
+            <FiterBar />
+        <div className={s.containerItems}>
+            {
+              product
+              .filter(({ show }) => show)
+              .map(item => <AllProductsItem key={item.id} {...item}/>)
+              }
+        </div>
       </div>
-    </div>
+    </AnimatedPage>
   )
 }
 

@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import Footer from '../Footer';
 import Header from '../Header';
 import './App.css';
@@ -15,6 +15,7 @@ import CategoriesProductsPage from '../../pages/CategoriesProductsPage';
 import ProductDescriptionPage from '../../pages/ProductDescriptionPage';
 import { fetchCategories } from '../../store/slice/categoriesSlice';
 import { fetchProducts } from '../../store/slice/productsSlice';
+import { AnimatePresence } from 'framer-motion';
 
 function App() {
   const dispatch = useDispatch()
@@ -23,10 +24,13 @@ function App() {
     dispatch(fetchProducts());
   }, [] )
 
+  const location = useLocation()
+
   return (
     <div className="App">
       <Header/>
-        <Routes>
+      <AnimatePresence mode='wait'>
+        <Routes key={location.pathname} location={location}>
           <Route path='/' element={<MainPage/>}/>
           <Route path='/catalog' element={<CatalogPage/>}/>
           <Route path='/catalog/:id' element={<CategoriesProductsPage/>}/>
@@ -35,6 +39,7 @@ function App() {
           <Route path='/sales' element={<AllSalesPage/>}/>
           <Route path='/basket' element={<BasketPage/>}/>
         </Routes>
+      </AnimatePresence>
       <Footer/>
     </div>
   );
