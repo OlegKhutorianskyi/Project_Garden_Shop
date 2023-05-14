@@ -1,8 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const basket = JSON.parse(localStorage.getItem('basket')) ?? [];
-const writeToLocalStorage = (basket) => localStorage.setItem('basket', JSON.stringify(basket))
-
 
 export const basketSlice = createSlice({
     name: 'basket',
@@ -14,15 +11,15 @@ export const basketSlice = createSlice({
             const product = state.list.find(({id}) => id === payload)
         if (product) {
             const productCount = product.count++
-            writeToLocalStorage(productCount)
+
         } else {
             const newState = state.list.push( {id: payload, count: 1})
-            writeToLocalStorage(newState)
+
         }
         },
         removeProduct (state, {payload}) {
             state.list = state.list.filter(({id}) => id !== payload)
-            writeToLocalStorage(state.list)
+            
         },
         incrCount (state, {payload}) {
             let findProduct = state.list.find(({id}) => id === payload)
@@ -35,11 +32,11 @@ export const basketSlice = createSlice({
             if (findProduct.count === 0) {
                 state.list = state.list.filter(({id}) => id !== payload)
             }
-            writeToLocalStorage(findProduct)
+
         },
         removeAll (state) {
             state.list = []
-            writeToLocalStorage(state.list)
+            
         },
         
     },
