@@ -1,6 +1,8 @@
 import React from "react";
 import s from "./style.module.css";
 import { Link } from "react-router-dom";
+import { SiGooglemaps } from 'react-icons/si';
+
 const Footer = () => 
    (
     <div className={s.footer}>

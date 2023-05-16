@@ -108,7 +108,7 @@ nav a:hover{
     transform: scale(1.1);
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 2510px) {
     .navBurgerBtn{
         display: none;
     }
