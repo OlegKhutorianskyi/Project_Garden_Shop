@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import s from './style.module.css'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
@@ -10,7 +10,7 @@ const Catalog = () => {
 
     const {list, status} = useSelector(state => state.category);
     const categorie = list.map(item => <CategoryItem key={item.id} {...item}/>)
-    
+  
   return (
     <section className={s.container}>
         <div className={s.catalogTitle}>

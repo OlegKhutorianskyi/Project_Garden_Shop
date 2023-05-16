@@ -40,3 +40,23 @@
     align-items: center;
     justify-items: center;
 }
+
+
+@media only screen and (max-width: 1250px) {
+    .catalogList{
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    }
+}
+
+
+@media only screen and (max-width: 992px) {
+   
+}
+
+@media only screen and (max-width: 768px) {
+   
+}
+
+@media only screen and (max-width: 480px) {
+   
+}

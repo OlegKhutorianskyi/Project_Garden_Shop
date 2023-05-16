@@ -2,7 +2,7 @@ import React from 'react'
 import s from './style.module.css'
 import { NavLink } from 'react-router-dom'
 
-const Menu = ({active, setActive}) => {
+const Menu = ({active}) => {
     const checkClass = active ? s.active : s.menu;
   return (
     <div className={checkClass}>

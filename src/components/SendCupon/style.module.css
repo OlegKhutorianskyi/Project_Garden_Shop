@@ -1,8 +1,11 @@
 .container{
-    display: flex;
-    justify-content: space-between;
-    gap: 200px;
-    padding: 30px 200px 30px 100px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-auto-rows: 500px;
+    gap: 20px;
+    align-items: center;
+    justify-items: center;
     background: linear-gradient(262.69deg, #339933 -0.43%, #006300 104.36%);
 }
 
@@ -10,7 +13,7 @@
     background-image: url('./cuponImg.png');
     object-fit: contain;
     background-repeat: no-repeat;
-    width: 420px;
+    width: 320px;
     height: 420px;
 }
 
@@ -69,4 +72,27 @@
     transition: .5s;
     transform: scale(1.1);
     border: 2px solid #006300;
+}
+
+
+@media only screen and (max-width: 992px) {
+    .sendCuponImg{
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .sendCuponForm{
+        align-items: center;
+    }
+    .cuponTitle{
+        font-size: 40px;
+    }
+    .cuponSubtitle{
+        font-size: 20px;
+    }
+    .containerSubmitNumber input{
+        width: 207px;
+    }
+
 }

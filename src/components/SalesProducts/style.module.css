@@ -26,3 +26,9 @@
     align-items: center;
     justify-items: center;
 }
+
+@media only screen and (max-width: 1250px) {
+    .salesList{
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    }
+}

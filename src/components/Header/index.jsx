@@ -25,7 +25,7 @@ menuActive ? document.body.style.overflow = 'hidden' : document.body.style.overf
                 <NavLink to='/sales'>All sales</NavLink>
             </nav>
             <NavLink to='/basket'><div className={s.basketImg}></div></NavLink>
-            <Menu active={menuActive} setActive={setMenuActive}/>
+            <Menu active={menuActive}/>
          </div>
         
     </div>
