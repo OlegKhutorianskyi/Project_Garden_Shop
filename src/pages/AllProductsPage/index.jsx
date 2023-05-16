@@ -14,11 +14,10 @@ const AllProductsPage = () => {
 
   useEffect(() => {
     dispatch(resetFilter());
-  }, []);
+  }, [dispatch]);
 
   const {list, status} = useSelector(state => state.products);
 
-  // console.log(list);
   return (
     <AnimatedPage>
       <div className={s.container}>
