@@ -12,6 +12,8 @@ const AllSalesPage = () => {
   return (
     <AnimatedPage>
       <div className={s.container}>
+      <h1 className={s.title}>Products with sale</h1>
+
         <FiterBar />
         {
           <div className={s.productsList}>
