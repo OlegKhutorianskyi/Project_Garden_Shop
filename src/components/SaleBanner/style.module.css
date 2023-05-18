@@ -67,7 +67,7 @@
         width: 100%;
     }
     .saleBanner{
-        padding: 50px;
+        padding: 50px 0 50px 50px;
     }
 }
 
