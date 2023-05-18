@@ -30,13 +30,10 @@ export const productsSlice = createSlice({
             state.list.push({show: true})
         },
         filteredSales (state, {payload}){
-
            state.list.filter(item => payload ? item.show = item.sale : item.show = true)
         },
         filterByPrice (state, {payload}) {
-            // const range = payload;
             state.list.filter(item => item.show = item.globalPrice <= payload.max && item.globalPrice >= payload.min)
-            console.log(payload);
 
         },
         

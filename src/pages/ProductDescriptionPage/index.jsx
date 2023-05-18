@@ -9,7 +9,7 @@ import AnimatedPage from "../AnimatedPage";
 const ProductDescriptionPage = () => {
   const { id } = useParams();
 
-  const {list} = useSelector(state => state.products)
+  const {list} = useSelector(state => state.products);
   const product = list.find(item => item.id === +id);
 
   const dispatch = useDispatch();
@@ -49,7 +49,7 @@ const ProductDescriptionPage = () => {
                   </>
                 )}
               </div>
-              <button onClick={() => dispatch(add(+id))}>To cart</button>
+              <button className={s.toCartBtn} onClick={() => dispatch(add(+id))}>To cart</button>
               <div className={s.productDescription}>
                 <h4>Description</h4>
                 <p className={s.description}>{description}</p>

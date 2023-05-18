@@ -1,9 +1,12 @@
+.container{
+    display: flex;
+    flex-direction: column;
+}
 .container > h1{
     text-align: left;
     font-weight: 600;
     font-size: 36px;
     margin-left: 30px;
-    margin-top: 130px;
     margin-bottom: 30px;
 }
 .containerInfo{
@@ -18,12 +21,14 @@
     width: 700px;
     height: 700px;
     object-fit: contain;
+    border-radius: 20px;
 }
 .productInfo{
     display: flex;
     flex-direction: column;
     width: 30%;
     gap: 40px;
+    padding: 20px;
 }
 .priceInfo{
     display: flex;
@@ -92,4 +97,22 @@
     font-weight: 500;
     font-size: 20px;
     line-height: 26px;
+}
+
+@media only screen and (max-width: 1250px) {
+    .container{
+        align-items: center;
+    }
+    .containerInfo{
+        flex-direction: column;
+    }
+    .productInfo{
+        width: 100%;
+    }
+    .priceInfo{
+        width: 30%;
+    }
+    .containerInfo button{
+        width: 80%;
+    }
 }

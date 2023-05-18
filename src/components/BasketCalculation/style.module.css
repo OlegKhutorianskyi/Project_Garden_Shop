@@ -90,3 +90,11 @@
     border: none;
     border-radius: 17px;
 }
+@media only screen and (max-width: 1020px) {
+    .container{
+        width: 100%;
+    }
+    /* .titleContainer{
+        flex-direction: column;
+    } */
+}

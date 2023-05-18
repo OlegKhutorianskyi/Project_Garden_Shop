@@ -1,6 +1,5 @@
 .container{
     padding: 80px 30px;
-
 }
 .basketInfoContainer{
     display: flex;
@@ -34,4 +33,13 @@
 }
 .basketItemContainer{
     width: 60%;
+}
+
+@media only screen and (max-width: 1020px) {
+    .basketInfoContainer{
+        flex-direction: column;
+    }
+    .basketItemContainer{
+        width: 100%;
+    }
 }
