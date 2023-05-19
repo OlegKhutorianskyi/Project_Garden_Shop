@@ -15,13 +15,14 @@ import { fetchCategories } from '../../store/slice/categoriesSlice';
 import { fetchProducts } from '../../store/slice/productsSlice';
 import { AnimatePresence } from 'framer-motion';
 import NotFoundPage from '../../pages/NotFoundPage';
+import OrderSended from '../OrderSended';
 
 function App() {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(fetchCategories());
     dispatch(fetchProducts());
-  }, [] )
+  }, [dispatch] )
 
   const location = useLocation()
 
@@ -37,6 +38,7 @@ function App() {
           <Route path='/products/:id' element={<ProductDescriptionPage/>}/>
           <Route path='/sales' element={<AllSalesPage/>}/>
           <Route path='/basket' element={<BasketPage/>}/>
+          <Route path='/order' element={<OrderSended/>}/>
           <Route path='/*' element={<NotFoundPage/>}/>
         </Routes>
       </AnimatePresence>

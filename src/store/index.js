@@ -1,21 +1,3 @@
-// import { applyMiddleware, combineReducers, createStore } from "redux";
-// import thunk from "redux-thunk";
-// import { categoriesReducer } from "./reducers/categoriesReducer";
-// import { productsReducer } from "./reducers/productsReducer";
-// import { cuponReducer } from "./reducers/cuponReducer";
-// import { basketReducer } from "./reducers/basketReducer";
-
-
-// const rootReducer = combineReducers({
-//     categories: categoriesReducer,
-//     products: productsReducer,
-//     cupon: cuponReducer,
-//     basket: basketReducer
-// })
-
-// export const store = createStore(rootReducer, applyMiddleware(thunk))
-
-
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { 
     persistStore, 
@@ -32,13 +14,15 @@ import categoriesSlice from "./slice/categoriesSlice";
 import productsSlice from "./slice/productsSlice";
 import basketSlice from "./slice/basketSlice";
 import cuponSlice from "./slice/cuponSlice";
+import  orderSlice  from "./slice/orderSlice";
 
 
 const rootReducer = combineReducers({
     category: categoriesSlice,
     products: productsSlice,
     basket: basketSlice,
-    cupon: cuponSlice
+    cupon: cuponSlice,
+    order: orderSlice
 })
 
 const persistConfig = {

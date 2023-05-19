@@ -2,11 +2,15 @@ import React from 'react'
 import s from './style.module.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { removeAll } from '../../store/slice/basketSlice';
+import { fetchOrder } from '../../store/slice/orderSlice';
+import { ToastContainer, toast } from 'react-toastify';
 
 const BasketCalculation = () => {
+
   const basket = useSelector(state => state.basket.list);
   const products = useSelector(state => state.products.list);
   const cupon = useSelector(state => state.cupon.list); 
+
   const dispatch = useDispatch();
 
   const basketDescr = basket.map(item => {
@@ -17,6 +21,23 @@ const BasketCalculation = () => {
   const totalPrice = basketDescr
     .reduce((acc, {count, globalPrice}) => acc + globalPrice  * count,  0)
     .toFixed(2);
+    
+    const sended = () => toast(`oreder send!`);
+    const noSend = () => toast(`Pleace, write your number`);
+
+    const submitNumber = (e) => {
+      e.preventDefault();
+      const number = e.target.number.value;
+      if (number) {
+        sended()
+        dispatch(fetchOrder(number))
+        dispatch(removeAll(basket))
+        window.location.href = '/order'
+      } else {
+        noSend()
+      }
+      e.target.reset();
+    }
 
   return (
     <div className={s.container}>
@@ -39,9 +60,21 @@ const BasketCalculation = () => {
           </div>
         : ''
       }
-      <form className={s.form}>
-        <input type="text" placeholder='Phone number'/>
+      <form className={s.form} onSubmit={submitNumber}>
+        <input type="text" name='number' placeholder='Phone number'/>
         <button>Order</button>
+        <ToastContainer
+            position="top-center"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light">
+        </ToastContainer>
       </form>
     </div>
   )

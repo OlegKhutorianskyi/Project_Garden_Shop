@@ -1,6 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 
+// export const fetchOrder = createAsyncThunk(
+//     'basket/fetchOrder',
+//     async () => {
+//         const resp = await fetch('http://localhost:3333/order/send');
+//         const data = await resp.json();
+//         return data
+//     }
+// );
+
+
 export const basketSlice = createSlice({
     name: 'basket',
     initialState: {
@@ -10,11 +20,9 @@ export const basketSlice = createSlice({
         add (state, {payload}) {
             const product = state.list.find(({id}) => id === payload)
         if (product) {
-            const productCount = product.count++
-
+            const productCount = product.count++;
         } else {
             const newState = state.list.push( {id: payload, count: 1})
-
         }
         },
         removeProduct (state, {payload}) {
@@ -42,14 +50,14 @@ export const basketSlice = createSlice({
     },
     // extraReducers: (builder) => {
     //     builder
-    //         .addCase(fetchCategories.pending, (state)=>{
+    //         .addCase(fetchOrder.pending, (state)=>{
     //             state.status = 'loading';
     //         })
-    //         .addCase(fetchCategories.fulfilled, (state, {payload})=>{
+    //         .addCase(fetchOrder.fulfilled, (state, {payload})=>{
     //             state.status = 'resolve';
     //             state.list = payload;
     //         })
-    //         .addCase(fetchCategories.rejected, (state, {payload})=>{
+    //         .addCase(fetchOrder.rejected, (state, {payload})=>{
     //             state.status = 'rejected';
     //             state.error = payload;
     //         })
