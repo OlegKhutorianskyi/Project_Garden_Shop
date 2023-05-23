@@ -4,7 +4,7 @@ export const fetchProducts = createAsyncThunk(
   "products/fetchProducts",
   async (_, { rejectWithValue }) => {
     try {
-      const resp = await fetch("http://localhost:3333/pproducts/all");
+      const resp = await fetch("http://localhost:3333/products/all");
       if (!resp.ok) {
         throw new Error("Server error!");
       }
