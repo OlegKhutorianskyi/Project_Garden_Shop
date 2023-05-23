@@ -7,7 +7,7 @@ import { PacmanLoader } from 'react-spinners'
 
 const SalesProducts = () => {
   
-  const {list, status} = useSelector(state => state.products);
+  const {list, status, error} = useSelector(state => state.products);
   const filterdSaleProducts = list.filter(item => item.discont_price !== null);
   const products = filterdSaleProducts.map(item => <SalesItem key={item.id} {...item}/>);
 
@@ -19,15 +19,17 @@ const SalesProducts = () => {
             </Link>
         </div>
         <div className={s.salesList}>
+        {status === "rejected" && <h2>{error}</h2>}
+
             {
               status === 'loading' 
-              ?
-                <PacmanLoader
+              ? <PacmanLoader
                   color={'green'}
                   loading={true}
                   size={100}
                 /> 
               :  products.slice(0,4)
+              //спробувать вирахувать через window кількість елементів
             }
         </div>
         

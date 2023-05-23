@@ -5,28 +5,26 @@ import { useDispatch } from 'react-redux';
 import { add } from '../../store/slice/basketSlice';
 
 const SalesItem = ({id, title, image, price, discont_price}) => {
+
     const dispatch = useDispatch();
     const [itemClassName, setItemClassName] = useState(false);
 
-
     return (
-    <div 
-        className={s.container}
-        onMouseEnter={() => setItemClassName(!false)}
-        onMouseLeave={() => setItemClassName(false)}
-    >
-                <img src={`http://localhost:3333${image}`} alt={title} />
-                {
-                    itemClassName 
-                    && 
-                    <button 
-                        className={s.addBtn}
-                        onClick={()=> dispatch(add(id))}    
-                    >
-                        add to cart
-                    </button>
-                }
-        <Link to={`/prdoucts/${id}`}>
+        <div className={s.container}
+            onMouseEnter={() => setItemClassName(true)}
+            onMouseLeave={() => setItemClassName(false)}
+        >
+            <img src={`http://localhost:3333${image}`} alt={title} />
+            {
+                itemClassName 
+                && 
+                <button className={s.addBtn}
+                    onClick={()=> dispatch(add(id))}    
+                >
+                    add to cart
+                </button>
+            }
+        <Link to={`/products/${id}`}>
             <div className={s.priceInfo}>
                 <p className={s.discount}>{discont_price}$</p>
                 <p className={s.price}>{price}$</p>

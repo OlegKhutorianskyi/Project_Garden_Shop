@@ -61,8 +61,8 @@ const BasketCalculation = () => {
         : ''
       }
       <form className={s.form} onSubmit={submitNumber}>
-        <input type="text" name='number' placeholder='Phone number'/>
-        <button>Order</button>
+        <input type="number" name='number' placeholder='Phone number'/>
+        <button disabled={basket.length === 0}>Order</button>
         <ToastContainer
             position="top-center"
             autoClose={5000}
@@ -73,8 +73,7 @@ const BasketCalculation = () => {
             pauseOnFocusLoss
             draggable
             pauseOnHover
-            theme="light">
-        </ToastContainer>
+            theme="light"/>
       </form>
     </div>
   )

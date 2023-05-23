@@ -5,15 +5,16 @@ import Menu from '../Menu'
 
 
 const Header = () => {
-const [menuActive, setMenuActive] = useState(false)
 
-menuActive ? document.body.style.overflow = 'hidden' : document.body.style.overflow = 'auto';
+  const [menuActive, setMenuActive] = useState(false);
 
-  return   (
+  menuActive ? document.body.style.overflow = 'hidden' : document.body.style.overflow = 'auto';
+
+  return (
     <div className={s.container}>
         <div className={s.logoContainer}>
             <button className={s.navBurgerBtn} onClick={() => setMenuActive(!menuActive)}><span /></button>
-            <NavLink to='/'><div className={s.logo}></div></NavLink> 
+            <NavLink to='/'><div className={s.logo}></div></NavLink>
             <NavLink to='/catalog'>
                 <button className={s.catalogBtn}>Catalog</button>
             </NavLink>

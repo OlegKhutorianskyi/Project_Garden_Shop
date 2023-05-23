@@ -8,7 +8,9 @@ const Footer = () =>
       <div className={s.info}>
         <div className={s.contacts}>
           <h3>Contact</h3>
-          <p className={s.numberPhone}>+49 999 999 99 99</p>
+          <a className={s.numberPhone} href="tel:+49 999 999 99 99">
+            +49 999 999 99 99
+          </a>
           <div className={s.socLicks}>
             <div className={s.inst}>
               <div className={s.instIcon}></div>

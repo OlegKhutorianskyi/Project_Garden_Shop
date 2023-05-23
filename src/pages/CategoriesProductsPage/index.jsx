@@ -7,6 +7,8 @@ import AllProductsItem from '../../components/AllProductsItem';
 import { useEffect } from 'react';
 import { resetFilter } from '../../store/slice/productsSlice';
 import AnimatedPage from '../AnimatedPage';
+import { PacmanLoader } from 'react-spinners';
+
 
 
 const CategoriesProductsPage = () => {
@@ -17,30 +19,27 @@ const CategoriesProductsPage = () => {
       dispatch(resetFilter());
     }, [dispatch]);
     
-    const {list, status} = useSelector(state => state.category)
+    const {list, status, error} = useSelector(state => state.category)
 
     const products = useSelector(state => state.products.list)
-      const product = products.filter(item => item.categoryId === +id)
-    // const product = products.filter(item => item.categoryId === +id)
+    const product = products.filter(item => item.categoryId === +id)
     const categories = list.filter(item => item.id === +id)
     
 
-
-    // const categories = useSelector(state => state.categories)
-    //   const category = categories.filter(item => item.id === +id)
-        
-    
   return (
     <AnimatedPage>
       <div>
-            <h1>{categories.map(item => item.title)}</h1>
-            <FiterBar />
+        <h1>{categories.map(item => item.title)}</h1>
+        <FiterBar />
         <div className={s.containerItems}>
+        {status === "rejected" && <h2>{error}</h2>}
             {
-              product
-              .filter(({ show }) => show)
-              .map(item => <AllProductsItem key={item.id} {...item}/>)
-              }
+              status === 'loading'
+              ? <PacmanLoader color={'green'} loading={true} size={100} /> 
+              : product
+                .filter(({ show }) => show)
+                .map(item => <AllProductsItem key={item.id} {...item}/>)
+            }
         </div>
       </div>
     </AnimatedPage>

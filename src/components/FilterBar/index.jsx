@@ -8,29 +8,23 @@ import { BiFilterAlt } from 'react-icons/bi';
 
 
 const FiterBar = () => {
-
+    const initialValue = {min: 0, max: Infinity};
     const [filterBtn, setFilterBtn] = useState(false);
+    const [price, setPrice] = useState(initialValue);
+    const [check, setCheck] = useState(false);
 
     const dispatch = useDispatch();
-
-    const initialValue = {min: 0, max: Infinity};
-
-    const [price, setPrice] = useState(initialValue);
-    const [check, setCheck] = useState(!true);
 
     useEffect(() => {
         dispatch(filterByPrice(price))
     }, [price, dispatch])
 
         
-    const setMaxPrice = (value) => 
-        setPrice(({min}) => ({min, max: value}))
-    
-    const setMinPrice = (value) => 
-        setPrice(({max}) => ({max, min: value}))
+    const setMaxPrice = (value) => setPrice(({min}) => ({min, max: value}))
+    const setMinPrice = (value) => setPrice(({max}) => ({max, min: value}))
 
     const location = document.location;
-    
+
     const handleFilterMinPrice = ({target}) => {
         const value = +target.value;
         setMinPrice(value)
@@ -40,8 +34,6 @@ const FiterBar = () => {
         const value = target.value === '' ? Infinity : +target.value;
         setMaxPrice(value)
     }
-    
-    
 
     const sortOnChange = (e) => {
         dispatch(sort(+e.target.value))
@@ -50,7 +42,7 @@ const FiterBar = () => {
     const changeCheck = () => {
         setCheck(!check)
         dispatch(filteredSales(!check))
-    }   
+    }
 
   return (
     <>
@@ -63,7 +55,6 @@ const FiterBar = () => {
                     <input 
                         type="number" 
                         name="minPrice" 
-                        id='minPrice' 
                         value={price.min === 0 ? '' : price.min}
                         placeholder='min Price' 
                         onChange={handleFilterMinPrice}
@@ -71,7 +62,6 @@ const FiterBar = () => {
                     <input 
                         type="number" 
                         name="maxPrice" 
-                        id='maxPrices' 
                         value={price.max === Infinity ? '' : price.max}
                         placeholder='max Price' 
                         onChange={handleFilterMaxPrice}
@@ -93,14 +83,14 @@ const FiterBar = () => {
                 </div>
                 <div className={s.sortProduct}>
                     <p>Sorted</p>
-                    <select name="sort" id="sort" onChange={sortOnChange}>
+                    <select name="sort" onChange={sortOnChange}>
                         <option value="1">By price up</option>
                         <option value="2">By price down</option>
                     </select>
                 <button className={s.resetFilterBtn} 
                     onClick={() => (
-                        setPrice({min: 0, max: Infinity}), 
-                        setCheck(!true)
+                        setPrice(initialValue),
+                        setCheck(false)
                     )}>
                         reset
                 </button>
