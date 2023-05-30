@@ -2,37 +2,40 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  position: absolute;
-  gap: 50px;
+  position: fixed;
+  gap: 13px;
   padding: 20px;
   color: #fff;
   width: 200px;
-  top: 40%;
+  top: 30%;
+  left: 0%;
   border-radius: 20px;
   background-color: #339933;
   margin-left: 30px;
   margin-bottom: 30px;
-  transform: translateX(0);
+  transform: translateX(-5%);
   transition: all 0.5s;
-  z-index: 1000;
+  z-index: 999;
 }
 
 .filterPoppup {
-  position: absolute;
-  top: 40%;
-  width: 200px;
-  border-radius: 20px;
-  padding: 20px;
-  background-color: #339933;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 50px;
-  transform: translateX(-300%);
-
+  flex-direction: column;
+  position: fixed;
+  gap: 13px;
+  padding: 20px;
+  color: #fff;
+  width: 200px;
+  top: 30%;
+  left: 0%;
+  border-radius: 20px;
+  background-color: #339933;
+  margin-left: 30px;
+  margin-bottom: 30px;
+  transform: translateX(-250%);
   transition: all 0.5s;
   z-index: 1000;
-  color: #fff;
 }
 
 .filterPrice {

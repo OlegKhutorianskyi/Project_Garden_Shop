@@ -23,8 +23,7 @@ const AllProductsItem = ({id, price, title, image, discont_price}) => {
               itemClassName 
                 && 
               <button className={s.addBtn}
-                onClick={() => dispatch(add(id))}
-              >
+                onClick={() => dispatch(add(id))}>
                 add to cart
               </button>
             }

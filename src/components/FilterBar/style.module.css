@@ -11,7 +11,7 @@
   height: 60px;
   position: fixed;
   left: -18px;
-  top: 30%;
+  top: 15%;
   background-color: #339933;
   border: none;
   border-radius: 50%;
@@ -19,10 +19,11 @@
   color: #fff;
   font-size: 20px;
   cursor: pointer;
-  z-index: 1000;
+  z-index: 999;
 }
 .filterBtn:hover {
   background-color: #206420;
+  transition: .5s;
 }
 
 .filterPrice {

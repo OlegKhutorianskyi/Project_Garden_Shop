@@ -14,7 +14,7 @@ const ProductDescriptionPage = () => {
   const product = list.find((item) => item.id === +id);
 
   const render = () => {
-    if (product === undefined) {
+    if (list === "loading") {
       return (
         <ReactLoading
           type="spinningBubbles"
