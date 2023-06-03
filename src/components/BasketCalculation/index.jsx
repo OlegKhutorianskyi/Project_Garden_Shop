@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from "react";
 import s from './style.module.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { removeAll } from '../../store/slice/basketSlice';
@@ -10,7 +10,7 @@ const BasketCalculation = () => {
   const basket = useSelector(state => state.basket.list);
   const products = useSelector(state => state.products.list);
   const cupon = useSelector(state => state.cupon.list); 
-
+  const [phonError, setPhonError] = useState('')
   const dispatch = useDispatch();
 
   const basketDescr = basket.map(item => {
@@ -38,6 +38,15 @@ const BasketCalculation = () => {
       }
       e.target.reset();
     }
+    const checkChange = ({ target }) => {
+      const value = +target.value;
+      const re = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+      if (!re.test(String(value).toLowerCase())) {
+        setPhonError('no correct phone number')
+      } else {
+        setPhonError('')
+      }
+    };
 
   return (
     <div className={s.container}>
@@ -61,7 +70,13 @@ const BasketCalculation = () => {
         : ''
       }
       <form className={s.form} onSubmit={submitNumber}>
-        <input type="number" name='number' placeholder='Phone number'/>
+      <div className={s.validText}>{phonError}</div>
+        <input 
+        type="number" 
+        name='number' 
+        placeholder='Phone number'
+        onChange={checkChange}
+        />
         <button disabled={basket.length === 0}>Order</button>
         <ToastContainer
             position="top-center"

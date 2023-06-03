@@ -10,7 +10,7 @@ const SaleBanner = () => (
         <p className={s.title}>Sale</p>
         <p className={s.subTitle}>New season</p>
         <Link to="/sales">
-          <button>Sale</button>
+          <button className={s.saleButton}>Sale</button>
         </Link>
       </div>
     </div>

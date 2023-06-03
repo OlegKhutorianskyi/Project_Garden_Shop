@@ -94,6 +94,11 @@
   transition: 0.5s;
   background-color: rgba(184, 79, 79, 0.555);
 }
+.validText{
+  color: #339933;
+  font-weight: 600;
+  font-size: 29px;
+}
 @media only screen and (max-width: 1020px) {
   .container {
     width: 100%;

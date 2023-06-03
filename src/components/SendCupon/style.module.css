@@ -83,6 +83,11 @@
   transform: scale(1);
   cursor: default;
 }
+.validText{
+  color: #ffffffbe;
+  font-weight: 600;
+  font-size: 29px;
+}
 
 @media only screen and (max-width: 992px) {
   .sendCuponImg {

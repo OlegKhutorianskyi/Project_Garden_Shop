@@ -8,11 +8,6 @@ import AnimatedPage from '../AnimatedPage'
 import { RxDoubleArrowRight } from 'react-icons/rx';
 import { ClipLoader } from 'react-spinners'
 
-
-
-
-
-
 const BasketPage = () => {
 
   const {list} = useSelector(state => state.basket)

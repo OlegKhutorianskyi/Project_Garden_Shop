@@ -30,7 +30,6 @@ function App() {
 
   return (
     <div className="App">
-      <div className="wrapper">
         <Header />
         {status === "loading" && (
           <PacmanLoader color={"green"} loading={true} size={100} />
@@ -42,10 +41,7 @@ function App() {
               <Route path="/catalog" element={<CatalogPage />} />
               <Route path="/catalog/:id" element={<CategoriesProductsPage />} />
               <Route path="/products" element={<AllProductsPage />} />
-              <Route
-                path="/products/:id"
-                element={<ProductDescriptionPage />}
-              />
+              <Route path="/products/:id" element={<ProductDescriptionPage />}/>
               <Route path="/sales" element={<AllSalesPage />} />
               <Route path="/basket" element={<BasketPage />} />
               <Route path="/order" element={<OrderSended />} />
@@ -55,7 +51,6 @@ function App() {
         </div>
         <Footer />
       </div>
-    </div>
   );
 }
 

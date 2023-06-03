@@ -8,6 +8,7 @@ import { fetchCupon } from "../../store/slice/cuponSlice";
 const SendCupon = () => {
   const dispatch = useDispatch();
   const [input, setInput] = useState("");
+  const [phonError, setPhonError] = useState('')
   const sendNumber = (e) => {
     e.preventDefault();
     dispatch(fetchCupon(input));
@@ -15,6 +16,12 @@ const SendCupon = () => {
   const checkChange = ({ target }) => {
     const value = +target.value;
     setInput(value);
+    const re = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+    if (!re.test(String(value).toLowerCase())) {
+      setPhonError('no correct phone number')
+    } else {
+      setPhonError('')
+    }
   };
   const notify = () => toast(`sale add!`);
   return (
@@ -27,6 +34,7 @@ const SendCupon = () => {
             <p className={s.cuponSubtitle}>on the firs order</p>
           </div>
           <form className={s.containerSubmitNumber} onSubmit={sendNumber}>
+            <div className={s.validText}>{phonError}</div>
             <input
               type="number"
               name="tel"
