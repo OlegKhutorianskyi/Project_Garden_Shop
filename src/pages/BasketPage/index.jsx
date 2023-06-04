@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux'
 import AnimatedPage from '../AnimatedPage'
 import { RxDoubleArrowRight } from 'react-icons/rx';
 import { ClipLoader } from 'react-spinners'
+import { Helmet } from 'react-helmet'
 
 const BasketPage = () => {
 
@@ -22,37 +23,42 @@ const BasketPage = () => {
 
   return (
     <AnimatedPage>
+      <Helmet>
+        <title>Basket</title>
+        <meta name="description" content="basket" />
+      </Helmet>
       <div className={s.container}>
         <h1>Shopping Cart</h1>
         <div className={s.linkToMain}>
-          <Link to={'/products'}>Back to the store</Link>
-          <span><RxDoubleArrowRight/></span>
+          <Link to={"/products"}>Back to the store</Link>
+          <span>
+            <RxDoubleArrowRight />
+          </span>
         </div>
         <div className={s.basketInfoContainer}>
-        {productsStatus === "rejected" && <h2>{productsError}</h2>}
-          {
-            productsStatus === 'loading'
-            ? <ClipLoader
-                color={'green'}
-                loading={true}
-                size={150}
-                aria-label='Load Spinner'
-                data-testid="loader"
-              /> 
-            : <>
-                <div className={s.basketItemContainer}>
-                  {
-                    data.map(item => <BasketItem key={item.id} {...item}/>)
-                  }
-                </div>
-                <BasketCalculation/>
-              </>
-          }
-          
+          {productsStatus === "rejected" && <h2>{productsError}</h2>}
+          {productsStatus === "loading" ? (
+            <ClipLoader
+              color={"green"}
+              loading={true}
+              size={150}
+              aria-label="Load Spinner"
+              data-testid="loader"
+            />
+          ) : (
+            <>
+              <div className={s.basketItemContainer}>
+                {data.map((item) => (
+                  <BasketItem key={item.id} {...item} />
+                ))}
+              </div>
+              <BasketCalculation />
+            </>
+          )}
         </div>
       </div>
     </AnimatedPage>
-  )
+  );
 }
 
 export default BasketPage

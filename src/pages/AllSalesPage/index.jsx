@@ -5,12 +5,17 @@ import AllProductsItem from '../../components/AllProductsItem';
 import FiterBar from '../../components/FilterBar'
 import { PacmanLoader } from 'react-spinners';
 import AnimatedPage from '../AnimatedPage';
+import { Helmet } from 'react-helmet';
 
 
 const AllSalesPage = () => {
   const {list, status, error} = useSelector(state => state.products);
   return (
     <AnimatedPage>
+      <Helmet>
+        <title>All sales products</title>
+        <meta name="description" content="Products with sale"/>
+      </Helmet>
       <div className={s.container}>
       <h1 className={s.title}>Products with sale</h1>
         <FiterBar />

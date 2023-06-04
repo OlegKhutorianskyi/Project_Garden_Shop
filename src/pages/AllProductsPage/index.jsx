@@ -7,6 +7,7 @@ import { PacmanLoader } from "react-spinners";
 import { useEffect } from "react";
 import { resetFilter } from "../../store/slice/productsSlice";
 import AnimatedPage from "../AnimatedPage";
+import { Helmet } from "react-helmet";
 
 const AllProductsPage = () => {
 
@@ -20,6 +21,10 @@ const AllProductsPage = () => {
 
   return (
     <AnimatedPage>
+      <Helmet>
+          <title>All products</title>
+          <meta name="description" content="All products"/>
+      </Helmet>
       <div className={s.container}>
         <h1 className={s.title}>All products</h1>
         <FiterBar />
@@ -30,7 +35,7 @@ const AllProductsPage = () => {
             ? <PacmanLoader color={"green"} loading={true} size={100} />
             : list
                 .filter(({ show }) => show)
-                .map((item) => <AllProductsItem key={item.id} {...item} />)
+                .map((item) => <AllProductsItem key={+item.id} {...item} />)
           }
         </div>
       </div>

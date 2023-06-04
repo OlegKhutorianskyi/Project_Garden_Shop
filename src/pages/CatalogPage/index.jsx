@@ -4,6 +4,7 @@ import CategoryItem from "../../components/CategorieItem";
 import s from "./style.module.css";
 import { PacmanLoader } from "react-spinners";
 import AnimatedPage from "../AnimatedPage";
+import { Helmet } from "react-helmet";
 
 const CatalogPage = () => {
   const { list, status, error } = useSelector((state) => state.category);
@@ -13,6 +14,10 @@ const CatalogPage = () => {
 
   return (
     <AnimatedPage>
+      <Helmet>
+          <title>Catalog</title>
+          <meta name="description" content="Catalog list page"/>
+      </Helmet>
       <div>
         <div className={s.catalogTitle}>
           <h1 className={s.title}>Catalog</h1>

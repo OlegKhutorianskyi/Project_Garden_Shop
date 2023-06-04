@@ -6,6 +6,7 @@ import { BsShop } from "react-icons/bs";
 import { MdDirectionsRun } from "react-icons/md";
 import { BsFillHouseDoorFill } from "react-icons/bs";
 import { useSelector } from "react-redux";
+import { Helmet } from "react-helmet";
 
 const OrderSended = () => {
   const { status, error } = useSelector((state) => state.order);
@@ -14,6 +15,10 @@ const OrderSended = () => {
     <h2>{error}</h2>
   ) : (
     <div className={s.container}>
+      <Helmet>
+        <title>Thank you!</title>
+        <meta name="description" content="order sended" />
+      </Helmet>
       <div className={s.titleContainer}>
         <h2 className={s.title}>
           Your order has been shipped and is being processed

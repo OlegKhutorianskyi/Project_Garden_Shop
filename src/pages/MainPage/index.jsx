@@ -6,6 +6,7 @@ import SendCupon from "../../components/SendCupon";
 import SalesProducts from "../../components/SalesProducts";
 import AnimatedPage from "../AnimatedPage";
 import { useSelector } from "react-redux";
+import { Helmet } from "react-helmet";
 
 const MainPage = () => {
   const { status, error } = useSelector((state) => state.products);
@@ -13,6 +14,10 @@ const MainPage = () => {
     <AnimatedPage>
       <div>
         {status === "rejected" ? <h2>{error}</h2> : <SaleBanner />}
+        <Helmet>
+          <title>Home</title>
+          <meta name="description" content="Home page"/>
+        </Helmet>
         <Catalog />
         <SendCupon />
         <SalesProducts />

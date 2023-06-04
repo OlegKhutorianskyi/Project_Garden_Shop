@@ -17,6 +17,7 @@ import { AnimatePresence } from "framer-motion";
 import NotFoundPage from "../../pages/NotFoundPage";
 import OrderSended from "../OrderSended";
 import { PacmanLoader } from "react-spinners";
+import { Helmet } from "react-helmet";
 
 function App() {
   const dispatch = useDispatch();
@@ -26,13 +27,29 @@ function App() {
     dispatch(fetchProducts());
   }, [dispatch]);
 
+  useEffect(() => {
+    let link = document.querySelector("link[rel~='icon']");
+    if (!link) {
+      link = document.createElement('link');
+      link.rel = 'icon';
+      document.getElementsByTagName('head')[0].appendChild(link);
+    }
+    link.href = 'http://surl.li/hqboz';
+  }, []);
+
   const location = useLocation();
 
   return (
     <div className="App">
         <Header />
         {status === "loading" && (
-          <PacmanLoader color={"green"} loading={true} size={100} />
+          <>
+            <Helmet>
+              <title>Download...</title>
+              <meta name="description" content="Catalog list page"/>
+            </Helmet>
+            <PacmanLoader color={"green"} loading={true} size={100} />
+          </>
         )}
         <div className="main">
           <AnimatePresence mode="wait">
