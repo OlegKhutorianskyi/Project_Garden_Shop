@@ -35,7 +35,7 @@ const AllProductsPage = () => {
             ? <PacmanLoader color={"green"} loading={true} size={100} />
             : list
                 .filter(({ show }) => show)
-                .map((item) => <AllProductsItem key={+item.id} {...item} />)
+                .map((item) => <AllProductsItem key={+item.id} {...item}/>)
           }
         </div>
       </div>
