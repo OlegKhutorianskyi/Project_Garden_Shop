@@ -2,11 +2,14 @@ import React, { useState } from 'react'
 import s from './style.module.css'
 import { NavLink } from 'react-router-dom'
 import Menu from '../Menu'
+import { BsBag } from 'react-icons/bs';
+
 
 
 const Header = () => {
 
   const [menuActive, setMenuActive] = useState(false);
+  const chekClass = ({isActive}) => [isActive ? s.active: '', s.link].join(' ');
 
   menuActive ? document.body.style.overflow = 'hidden' : document.body.style.overflow = 'auto';
 
@@ -21,11 +24,11 @@ const Header = () => {
         </div>
          <div className={s.navContainer}>
             <nav>
-                <NavLink to='/'>Main page</NavLink>
-                <NavLink to='/products'>All products</NavLink>
-                <NavLink to='/sales'>All sales</NavLink>
+                <NavLink className={chekClass} to='/'>Main page</NavLink>
+                <NavLink className={chekClass} to='/products'>All products</NavLink>
+                <NavLink className={chekClass} to='/sales'>All sales</NavLink>
             </nav>
-            <NavLink to='/basket'><div className={s.basketImg}></div></NavLink>
+            <NavLink className={chekClass} to='/basket'><BsBag/></NavLink>
             <Menu active={menuActive} setActive={setMenuActive}/>
          </div>
         

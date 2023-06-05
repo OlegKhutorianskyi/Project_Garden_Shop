@@ -4,11 +4,9 @@
   gap: 20px;
   width: 300px;
   text-align: left;
+  position: relative;
 }
-.container:hover {
-  transition: 0.5s;
-  transform: translateY(-10px);
-}
+
 .addBtn {
   position: absolute;
   top: 50%;

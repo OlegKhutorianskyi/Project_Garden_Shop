@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import ReactLoading from "react-loading";
 import { add } from "../../store/slice/basketSlice";
 import AnimatedPage from "../AnimatedPage";
+import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const ProductDescriptionPage = () => {
   const { id } = useParams();
@@ -12,6 +14,16 @@ const ProductDescriptionPage = () => {
 
   const { list, status, error } = useSelector((state) => state.products);
   const product = list.find((item) => item.id === +id);
+  const addToBasket = () => {
+    dispatch(add(id))
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Product added to cart!',
+      showConfirmButton: false,
+      timer: 1000
+    })
+  }
 
   const render = () => {
     if (list === "loading") {
@@ -25,7 +37,9 @@ const ProductDescriptionPage = () => {
       );
     } else {
       const { description, discont_price, price, image, title } = product;
+      
       return (
+        
         <div className={s.container}>
           <h1>{title}</h1>
           <div className={s.containerInfo}>
@@ -53,7 +67,7 @@ const ProductDescriptionPage = () => {
               </div>
               <button
                 className={s.toCartBtn}
-                onClick={() => dispatch(add(+id))}
+                onClick={() => addToBasket()}
               >
                 To cart
               </button>
@@ -69,7 +83,12 @@ const ProductDescriptionPage = () => {
   };
 
   return (
+    
     <AnimatedPage>
+      <Helmet>
+          <title>{product.title}</title>
+          <meta name="description" content="All products"/>
+      </Helmet>
       {status === "rejected" ? <h2>{error}</h2> : render()}
     </AnimatedPage>
   );
