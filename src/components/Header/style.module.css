@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 20px 30px;
-  margin-bottom: 80px;
+  /* margin-bottom: 80px; */
 }
 .logoContainer {
   display: flex;
@@ -105,6 +105,17 @@
   color: #339933;
 }
 
+.productCalculate{
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: #339933;
+  color: #fff;
+  position: absolute;
+  right: 25px;
+  top: 53px;
+}
+
 
 @media only screen and (max-width: 2510px) {
   .navBurgerBtn {
@@ -117,7 +128,7 @@
     display: none;
   }
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 860px) {
   .logo {
     display: none;
   }
@@ -129,6 +140,9 @@
   }
   .navBurgerBtn {
     display: block;
+  }
+  .productCalculate{
+    top: 30px;
   }
 }
 @media only screen and (max-width: 480px) {

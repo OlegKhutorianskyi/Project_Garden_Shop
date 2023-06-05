@@ -3,6 +3,7 @@ import s from './style.module.css'
 import { NavLink } from 'react-router-dom'
 import Menu from '../Menu'
 import { BsBag } from 'react-icons/bs';
+import { useSelector } from 'react-redux';
 
 
 
@@ -10,6 +11,7 @@ const Header = () => {
 
   const [menuActive, setMenuActive] = useState(false);
   const chekClass = ({isActive}) => [isActive ? s.active: '', s.link].join(' ');
+  const {list} = useSelector(state => state.basket)
 
   menuActive ? document.body.style.overflow = 'hidden' : document.body.style.overflow = 'auto';
 
@@ -29,6 +31,7 @@ const Header = () => {
                 <NavLink className={chekClass} to='/sales'>All sales</NavLink>
             </nav>
             <NavLink className={chekClass} to='/basket'><BsBag/></NavLink>
+            <div className={s.productCalculate}>{list.length}</div>
             <Menu active={menuActive} setActive={setMenuActive}/>
          </div>
         

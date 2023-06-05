@@ -12,7 +12,7 @@ export const fetchProducts = createAsyncThunk(
       const modifyData = data.map((item) => ({
         ...item,
         globalPrice:
-          item.discont_price === null ? item.price : item.discont_price,
+        item.discont_price === null ? item.price : item.discont_price,
         show: true,
         sale: item.discont_price !== null,
       }));

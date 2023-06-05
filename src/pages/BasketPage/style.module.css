@@ -36,8 +36,16 @@
 @media only screen and (max-width: 1020px) {
   .basketInfoContainer {
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
   .basketItemContainer {
     width: 100%;
+    flex-direction: column;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
+  
 }

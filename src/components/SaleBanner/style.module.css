@@ -3,7 +3,6 @@
   justify-content: space-between;
   background-color: #a1e2eb;
   align-items: center;
-  width: 100%;
 }
 
 .linkToSale {
@@ -71,7 +70,7 @@
 
 @media only screen and (max-width: 768px) {
   .bannerImgContainer {
-    width: 60%;
+    width: 100%;
   }
   .linkToSale {
     width: 30%;
