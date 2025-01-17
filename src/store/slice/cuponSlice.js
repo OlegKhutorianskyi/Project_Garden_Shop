@@ -4,7 +4,7 @@ export const fetchCupon = createAsyncThunk(
   "cupon/fetchCupon",
   async (_, { rejectWithValue }) => {
     try {
-      const resp = await fetch("http://localhost:3333/sale/send");
+      const resp = await fetch("https://garden-back-f1yi.onrender.com/sale/send");
       if (!resp.ok) {
         throw new Error("Server error!");
       }
