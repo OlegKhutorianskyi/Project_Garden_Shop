@@ -4,7 +4,7 @@ export const fetchCategories = createAsyncThunk(
   "categories/fetchCategories",
   async (_, { rejectWithValue }) => {
     try {
-      const resp = await fetch("http://localhost:3333/categories/all");
+      const resp = await fetch("https://garden-back-f1yi.onrender.com/categories/all");
       if (!resp.ok) {
         throw new Error("Server error!");
       }
