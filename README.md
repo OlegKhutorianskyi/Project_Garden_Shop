@@ -1,70 +1,75 @@
-# Getting Started with Create React App
+Live Demo:
+https://gardenshopkvitka.netlify.app/
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+🌿 Project Garden Shop
 
-## Available Scripts
+Eine moderne E-Commerce-Webanwendung für einen Garten- und Pflanzen-Online-Shop. Das Projekt bietet eine übersichtliche Benutzeroberfläche zur Präsentation von Pflanzen, Gartengeräten und Zubehör sowie eine interaktive Warenkorb-Verwaltung.
 
-In the project directory, you can run:
+🚀 Funktionen und Merkmale
 
-### `npm start`
+🪴 Produkt- & Pflanzenkatalog: Übersichtliche Darstellung von Pflanzen, Samen, Düngemitteln und Gartengeräten.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+🔍 Kategorien & Filterung: Einfaches Filtern nach Kategorien, Preisen und Rabattaktionen.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+🏷 Rabattsystem: Hervorhebung von Angeboten und Sonderpreisen.
 
-### `npm test`
+🛒 Interaktiver Warenkorb:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Hinzufügen und Entfernen von Produkten.
 
-### `npm run build`
+Dynamische Mengenansicht.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Automatische Neuberechnung des Gesamtbetrags.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+📱 Responsive Design: Optimiert für eine reibungslose Nutzung auf Smartphones, Tablets und Desktops.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+🛠 Technologie-Stack
 
-### `npm run eject`
+Frontend: React (JavaScript / TypeScript)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+State Management: Redux Toolkit / React Context API
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Styling: CSS Modules / SCSS / Tailwind CSS
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Routing: React Router
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Build Tool: Vite / Create React App
 
-## Learn More
+📦 Installation und Einrichtung
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Führe die folgenden Schritte aus, um das Projekt lokal auszuführen:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Repository klonen
 
-### Code Splitting
+git clone https://github.com/OlegKhutorianskyi/Project_Garden_Shop.git
+cd Project_Garden_Shop
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+2. Abhängigkeiten installieren
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+npm install
+# oder
+yarn install
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+3. Entwicklungs-Server starten
 
-### Advanced Configuration
+npm run dev
+# oder
+yarn dev
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+Nach dem Start ist die Anwendung unter http://localhost:5173 (oder http://localhost:3000) erreichbar.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+🏗 Produktion-Build
 
-### `npm run build` fails to minify
+Erstellen eines optimierten Builds für die Bereitstellung (Deployment):
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+npm run build
+
+
+👨‍💻 Autor
+
+Oleg Khutorianskyi
+
+GitHub: @OlegKhutorianskyi
